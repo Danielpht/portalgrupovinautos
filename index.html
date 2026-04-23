@@ -14,8 +14,8 @@
   --surface:#13161f;
   --card:#1a1e2b;
   --border:#252836;
-  --accent:#f59e0b;
-  --accent2:#fbbf24;
+  --accent:#10b981;
+  --accent2:#17996A;
   --green:#10b981;
   --red:#ef4444;
   --blue:#3b82f6;
@@ -120,7 +120,7 @@ footer a{color:var(--accent)}
   <!-- TABS -->
   <div class="tabs">
     <div class="tab active" id="tab-verificar" onclick="switchTab('verificar')">🔍 Verificar Certificado</div>
-    <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consulta Pagada</div>
+    <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consultas</div>
   </div>
 
   <!-- ══════════ SECCIÓN VERIFICAR ══════════ -->
@@ -155,7 +155,7 @@ footer a{color:var(--accent)}
         <div class="pago-title">💳 Datos de pago</div>
         <div class="pago-row"><span>Nequi / Daviplata</span><strong>310 411 3186</strong></div>
         <div class="pago-row"><span>Titular</span><strong>Grupo Vinautos S.A.S</strong></div>
-        <div class="pago-row"><span>Valor</span><strong>$12.000 COP</strong></div>
+        <div class="pago-row"><span>Valor</span><strong>$120.000 COP</strong></div>
       </div>
 
       <label for="s-nombre">Nombre completo</label>
@@ -172,9 +172,12 @@ footer a{color:var(--accent)}
 
       <label for="s-tipo">Tipo de consulta</label>
       <select id="s-tipo">
-        <option value="regrabacion">Regrabación de VIN</option>
-        <option value="inspeccion">Inspección Vehicular</option>
-        <option value="ambos">Ambos certificados</option>
+        <option value="regrabacion">Datos Tecnicos</option>
+        <option value="inspeccion">Propietario</option>
+        <option value="ambos">Pendiente</option>
+        <option value="ambos">Pendiente</option>
+        <option value="ambos">Pendiente</option>
+        <option value="ambos">Pendiente</option>
       </select>
 
       <label for="s-comp">N° comprobante de pago <span style="color:var(--muted);font-weight:400">(opcional si ya pagó)</span></label>
