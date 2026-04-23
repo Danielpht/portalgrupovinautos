@@ -1,352 +1,703 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Portal de Verificación | Grupo Vinautos S.A.S</title>
-<meta name="description" content="Verifique la autenticidad de certificados de regrabación e inspección vehicular emitidos por Grupo Vinautos S.A.S"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0a0c12;
-  --surface:#13161f;
-  --card:#1a1e2b;
-  --border:#252836;
-  --accent:#10b981;
-  --accent2:#17996A;
-  --green:#10b981;
-  --red:#ef4444;
-  --blue:#3b82f6;
-  --text:#f1f5f9;
-  --muted:#94a3b8;
-  --radius:14px;
-}
-body{font-family:'Inter',sans-serif;background-color:var(--bg);background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://i.ibb.co/Xffh5f5c/FONDO-PAGINA-SEGURIDAD-VINAUTOS.png"); background-size:cover; background-position:center; background-attachment:fixed;color:var(--text);min-height:100vh;display:flex;flex-direction:column}
-a{color:var(--accent);text-decoration:none}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal de Verificación | Grupo Vinautos S.A.S</title>
+  <meta name="description"
+    content="Verifique la autenticidad de certificados de regrabación e inspección vehicular emitidos por Grupo Vinautos S.A.S" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-/* ── Header ── */
-header{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:14px}
-header img{height:44px;object-fit:contain}
-.header-titles h1{font-size:1rem;font-weight:700;color:var(--text);line-height:1.2}
-.header-titles p{font-size:.72rem;color:var(--muted)}
+    :root {
+      --bg: #0a0c12;
+      --surface: #13161f;
+      --card: #1a1e2b;
+      --border: #252836;
+      --accent: #10b981;
+      --accent2: #17996A;
+      --green: #10b981;
+      --red: #ef4444;
+      --blue: #3b82f6;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --radius: 14px;
+    }
 
-/* ── Main ── */
-main{flex:1;padding:24px 16px 40px;max-width:680px;margin:0 auto;width:100%}
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.ibb.co/Xffh5f5c/FONDO-PAGINA-SEGURIDAD-VINAUTOS.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column
+    }
 
-/* ── Tabs ── */
-.tabs{display:flex;gap:8px;margin-bottom:24px}
-.tab{flex:1;padding:10px 8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;transition:.2s;text-align:center}
-.tab.active{background:var(--accent);color:#0a0c12;border-color:var(--accent)}
-.tab:hover:not(.active){border-color:var(--accent);color:var(--accent)}
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
 
-/* ── Section ── */
-.section{display:none}
-.section.active{display:block}
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
 
-/* ── Card ── */
-.card{background:rgba(15, 23, 42, 0.65);box-shadow:0 25px 50px -12px rgba(0,0,0,0.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:22px}
-.card h2{font-size:1rem;font-weight:700;margin-bottom:4px}
-.card p.sub{font-size:.8rem;color:var(--muted);margin-bottom:18px}
+    header img {
+      height: 44px;
+      object-fit: contain
+    }
 
-/* ── Form ── */
-label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
-input,select,textarea{width:100%;background:#0f1118;border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;font-family:inherit;transition:.2s;margin-bottom:14px}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(245,158,11,.12)}
-input::placeholder{color:#3d4255}
-.mono{font-family:'Courier New',monospace;letter-spacing:.06em;font-size:.85rem}
-.hint{font-size:.74rem;color:var(--muted);margin-top:-10px;margin-bottom:14px}
-.hint span{color:var(--accent)}
+    .header-titles h1 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2
+    }
 
-/* ── Buttons ── */
-.btn{display:block;width:100%;padding:13px;border:none;border-radius:9px;font-size:.95rem;font-weight:700;cursor:pointer;transition:.2s;font-family:inherit}
-.btn-gold{background:linear-gradient(135deg,#10b981,#218F69);color:#0a0c12}
-.btn-gold:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted);margin-top:10px}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+    .header-titles p {
+      font-size: .72rem;
+      color: var(--muted)
+    }
 
-/* ── Result ── */
-#result,#result2{margin-top:20px}
-.result-card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--green);padding:20px;animation:fadeIn .3s ease}
-.result-card.error{border-color:var(--red)}
-.result-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:.75rem;font-weight:700}
-.badge-ok{background:rgba(16,185,129,.15);color:var(--green)}
-.badge-err{background:rgba(239,68,68,.15);color:var(--red)}
-.badge-warn{background:rgba(245,158,11,.15);color:var(--accent)}
-.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.result-item{background:var(--card);border-radius:8px;padding:10px 12px}
-.result-item .ri-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:3px}
-.result-item .ri-val{font-size:.88rem;font-weight:600;color:var(--text);word-break:break-all}
-.result-item.full{grid-column:1/-1}
+    /* ── Main ── */
+    main {
+      flex: 1;
+      padding: 24px 16px 40px;
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%
+    }
 
-/* ── Alert box ── */
-.alert{padding:12px 14px;border-radius:8px;font-size:.82rem;margin-top:14px}
-.alert-warn{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#58D1A8}
-.alert-ok{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#6ee7b7}
-.alert-err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5}
+    /* ── Tabs ── */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px
+    }
 
-/* ── Pago info ── */
-.pago-box{background:#0f1118;border:1px solid var(--border);border-radius:10px;padding:16px;margin:14px 0}
-.pago-box .pago-title{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-.pago-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:.85rem}
-.pago-row:last-child{border:none}
-.pago-row strong{color:var(--accent)}
+    .tab {
+      flex: 1;
+      padding: 10px 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: .2s;
+      text-align: center
+    }
 
-/* ── Spinner ── */
-.spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(245,158,11,.3);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .tab.active {
+      background: var(--accent);
+      color: #0a0c12;
+      border-color: var(--accent)
+    }
 
-/* ── Footer ── */
-footer{text-align:center;padding:16px;font-size:.75rem;color:var(--muted);border-top:1px solid var(--border)}
-footer a{color:var(--accent)}
-</style>
+    .tab:hover:not(.active) {
+      border-color: var(--accent);
+      color: var(--accent)
+    }
+
+    /* ── Section ── */
+    .section {
+      display: none
+    }
+
+    .section.active {
+      display: block
+    }
+
+    /* ── Card ── */
+    .card {
+      background: rgba(15, 23, 42, 0.65);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 22px
+    }
+
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .card p.sub {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-bottom: 18px
+    }
+
+    /* ── Form ── */
+    label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .04em
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      background: #0f1118;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      color: var(--text);
+      font-size: .9rem;
+      font-family: inherit;
+      transition: .2s;
+      margin-bottom: 14px
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, .12)
+    }
+
+    input::placeholder {
+      color: #3d4255
+    }
+
+    .mono {
+      font-family: 'Courier New', monospace;
+      letter-spacing: .06em;
+      font-size: .85rem
+    }
+
+    .hint {
+      font-size: .74rem;
+      color: var(--muted);
+      margin-top: -10px;
+      margin-bottom: 14px
+    }
+
+    .hint span {
+      color: var(--accent)
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 9px;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+      font-family: inherit
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0a0c12
+    }
+
+    .btn-gold:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px)
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin-top: 10px
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent)
+    }
+
+    /* ── Result ── */
+    #result,
+    #result2 {
+      margin-top: 20px
+    }
+
+    .result-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--green);
+      padding: 20px;
+      animation: fadeIn .3s ease
+    }
+
+    .result-card.error {
+      border-color: var(--red)
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 700
+    }
+
+    .badge-ok {
+      background: rgba(16, 185, 129, .15);
+      color: var(--green)
+    }
+
+    .badge-err {
+      background: rgba(239, 68, 68, .15);
+      color: var(--red)
+    }
+
+    .badge-warn {
+      background: rgba(245, 158, 11, .15);
+      color: var(--accent)
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .result-item {
+      background: var(--card);
+      border-radius: 8px;
+      padding: 10px 12px
+    }
+
+    .result-item .ri-label {
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--muted);
+      margin-bottom: 3px
+    }
+
+    .result-item .ri-val {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all
+    }
+
+    .result-item.full {
+      grid-column: 1/-1
+    }
+
+    /* ── Alert box ── */
+    .alert {
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: .82rem;
+      margin-top: 14px
+    }
+
+    .alert-warn {
+      background: rgba(245, 158, 11, .1);
+      border: 1px solid rgba(245, 158, 11, .3);
+      color: #fde68a
+    }
+
+    .alert-ok {
+      background: rgba(16, 185, 129, .1);
+      border: 1px solid rgba(16, 185, 129, .3);
+      color: #6ee7b7
+    }
+
+    .alert-err {
+      background: rgba(239, 68, 68, .1);
+      border: 1px solid rgba(239, 68, 68, .3);
+      color: #fca5a5
+    }
+
+    /* ── Pago info ── */
+    .pago-box {
+      background: #0f1118;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 14px 0
+    }
+
+    .pago-box .pago-title {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 8px
+    }
+
+    .pago-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .85rem
+    }
+
+    .pago-row:last-child {
+      border: none
+    }
+
+    .pago-row strong {
+      color: var(--accent)
+    }
+
+    /* ── Spinner ── */
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(245, 158, 11, .3);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: .75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border)
+    }
+
+    footer a {
+      color: var(--accent)
+    }
+  </style>
 </head>
+
 <body>
 
-<header style="background: transparent; border-bottom: none; padding: 20px; display: flex; justify-content: center; align-items: center;">
-  <img src="https://i.ibb.co/Pztk5v8L/LOGO-VINAUTOS-AF.png" alt="Grupo Vinautos" style="height: 80px; object-fit: contain;" onerror="this.style.display='none'"/>
-</header>
+  <header
+    style="background: transparent; border-bottom: none; padding: 20px; display: flex; justify-content: center; align-items: center;">
+    <img src="https://i.ibb.co/Pztk5v8L/LOGO-VINAUTOS-AF.png" alt="Grupo Vinautos"
+      style="height: 80px; object-fit: contain;" onerror="this.style.display='none'" />
+  </header>
 
-<main>
+  <main>
 
-  <!-- TITULO -->
-  <div style="text-align: center; margin-bottom: 24px;">
-    <h1 style="font-size: 1.5rem; font-weight: 700; color: var(--text);">Portal de Verificación</h1>
-  </div>
-
-  <!-- TABS -->
-  <div class="tabs">
-    <div class="tab active" id="tab-verificar" onclick="switchTab('verificar')">🔍 Verificar Certificado</div>
-    <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consultas</div>
-  </div>
-
-  <!-- ══════════ SECCIÓN VERIFICAR ══════════ -->
-  <div class="section active" id="sec-verificar">
-    <div class="card">
-      <h2>Verificar Autenticidad</h2>
-      <p class="sub">Ingrese el ID del certificado y el código de verificación impreso en el documento.</p>
-
-      <label for="tipo">Tipo de certificado</label>
-      <select id="tipo">
-        <option value="regrabaciones">Regrabación de VIN</option>
-        <option value="inspecciones">Inspección Vehicular</option>
-      </select>
-
-      <label for="control">Código de verificación</label>
-      <input id="control" type="text" class="mono" placeholder="Ej: e8e293f1594667c9" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"/>
-      <div class="hint">Impreso en el documento bajo el QR · <span>8 a 20 caracteres hexadecimales</span></div>
-
-      <button class="btn btn-gold" id="btn-buscar" onclick="buscarCert()">Verificar Certificado</button>
+    <!-- TITULO -->
+    <div style="text-align: center; margin-bottom: 24px;">
+      <h1 style="font-size: 1.5rem; font-weight: 700; color: var(--text);">Portal de Verificación</h1>
     </div>
 
-    <div id="result"></div>
-  </div>
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active" id="tab-verificar" onclick="switchTab('verificar')">🔍 Verificar Certificado</div>
+      <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consultas</div>
+    </div>
 
-  <!-- ══════════ SECCIÓN CONSULTA ══════════ -->
-  <div class="section" id="sec-consulta">
-    <div class="card">
-      <h2>Consulta Técnica</h2>
-      <p class="sub">Solicite información sobre un vehículo. El informe se envía a su correo tras confirmar el pago.</p>
+    <!-- ══════════ SECCIÓN VERIFICAR ══════════ -->
+    <div class="section active" id="sec-verificar">
+      <div class="card">
+        <h2>Verificar Autenticidad</h2>
+        <p class="sub">Ingrese el ID del certificado y el código de verificación impreso en el documento.</p>
 
-      <div class="pago-box">
-        <div class="pago-title">💳 Datos de pago</div>
-        <div class="pago-row"><span>Nequi / Daviplata</span><strong>310 411 3186</strong></div>
-        <div class="pago-row"><span>Titular</span><strong>Grupo Vinautos S.A.S</strong></div>
-        <div class="pago-row"><span>Valor</span><strong>$120.000 COP</strong></div>
+        <label for="tipo">Tipo de certificado</label>
+        <select id="tipo">
+          <option value="regrabaciones">Regrabación de VIN</option>
+          <option value="inspecciones">Inspección Vehicular</option>
+        </select>
+
+        <label for="control">Código de verificación</label>
+        <input id="control" type="text" class="mono" placeholder="Ej: e8e293f1594667c9" maxlength="20"
+          autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
+        <div class="hint">Impreso en el documento bajo el QR · <span>8 a 20 caracteres hexadecimales</span></div>
+
+        <button class="btn btn-gold" id="btn-buscar" onclick="buscarCert()">Verificar Certificado</button>
       </div>
 
-      <label for="s-nombre">Nombre completo</label>
-      <input id="s-nombre" type="text" placeholder="Su nombre"/>
-
-      <label for="s-tel">Teléfono</label>
-      <input id="s-tel" type="tel" placeholder="3XX XXX XXXX"/>
-
-      <label for="s-correo">Correo electrónico</label>
-      <input id="s-correo" type="email" placeholder="correo@ejemplo.com"/>
-
-      <label for="s-placa">Placa del vehículo</label>
-      <input id="s-placa" type="text" placeholder="Ej: ABC123" autocapitalize="characters" maxlength="7"/>
-
-      <label for="s-tipo">Tipo de consulta</label>
-      <select id="s-tipo">
-        <option value="regrabacion">Datos Tecnicos</option>
-        <option value="inspeccion">Propietario</option>
-        <option value="ambos">Pendiente</option>
-        <option value="ambos">Pendiente</option>
-        <option value="ambos">Pendiente</option>
-        <option value="ambos">Pendiente</option>
-      </select>
-
-      <label for="s-comp">N° comprobante de pago <span style="color:var(--muted);font-weight:400">(opcional si ya pagó)</span></label>
-      <input id="s-comp" type="text" placeholder="Número de transacción Nequi/Daviplata"/>
-
-      <button class="btn btn-gold" id="btn-solicitud" onclick="enviarSolicitud()">Enviar Solicitud</button>
+      <div id="result"></div>
     </div>
 
-    <div id="result2"></div>
-  </div>
+    <!-- ══════════ SECCIÓN CONSULTA ══════════ -->
+    <div class="section" id="sec-consulta">
+      <div class="card">
+        <h2>Consulta Técnica</h2>
+        <p class="sub">Solicite información sobre un vehículo. El informe se envía a su correo tras confirmar el pago.
+        </p>
 
-</main>
+        <label for="s-tipo">Tipo de consulta</label>
+        <select id="s-tipo" onchange="updateConsultaForm()">
+          <option value="" disabled selected>Seleccione el tipo de consulta...</option>
+          <option value="datos_tecnicos" data-precio="$30.000 COP">Datos Técnicos</option>
+          <option value="propietario" data-precio="$40.000 COP">Propietario</option>
+          <option value="pendiente1" data-precio="$50.000 COP">Pendiente 1</option>
+          <option value="pendiente2" data-precio="$60.000 COP">Pendiente 2</option>
+        </select>
 
-<footer>
-  © 2025 Grupo Vinautos S.A.S · <a href="mailto:ger.grupovinautos@gmail.com">ger.grupovinautos@gmail.com</a>
-</footer>
+        <div id="consulta-form-container" style="display: none; margin-top: 20px;">
+          <div class="pago-box">
+            <div class="pago-title">💳 Datos de pago</div>
+            <div class="pago-row"><span>Nequi / Daviplata</span><strong>310 411 3186</strong></div>
+            <div class="pago-row"><span>Titular</span><strong>Grupo Vinautos S.A.S</strong></div>
+            <div class="pago-row"><span>Valor</span><strong id="pago-valor">$0 COP</strong></div>
+          </div>
 
-<script>
-// ─── CONFIGURACIÓN ─────────────────────────────────────────────────────────────
-// Reemplazar con la URL real del Portal Code.gs desplegado en Apps Script
-var PORTAL_API = 'https://script.google.com/macros/s/AKfycbyUtjIwGL0UlcgrlvHv29_VG4pCclgpVMByE3dAsTRamsX1bmM8pjieVhslnnop9Pzl/exec';
+          <label for="s-nombre">Nombre completo</label>
+          <input id="s-nombre" type="text" placeholder="Su nombre" />
 
-// ─── Tabs ──────────────────────────────────────────────────────────────────────
-function switchTab(name) {
-  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
-  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
-  document.getElementById('tab-' + name).classList.add('active');
-  document.getElementById('sec-' + name).classList.add('active');
-}
+          <label for="s-tel">Teléfono</label>
+          <input id="s-tel" type="tel" placeholder="3XX XXX XXXX" />
 
-// ─── Verificar ────────────────────────────────────────────────────────────────
-function buscarCert() {
-  var tipo    = document.getElementById('tipo').value;
-  var control = document.getElementById('control').value.trim().toLowerCase();
-  var div     = document.getElementById('result');
+          <label for="s-correo">Correo electrónico</label>
+          <input id="s-correo" type="email" placeholder="correo@ejemplo.com" />
 
-  if (!control) { showMsg(div, 'error', 'Ingrese el código de verificación.'); return; }
-  if (control.length < 8 || control.length > 20) {
-    showMsg(div, 'error', 'El código de verificación debe tener entre 8 y 20 caracteres.'); return;
-  }
-  if (!/^[0-9a-f]+$/.test(control)) {
-    showMsg(div, 'error', 'El código de verificación solo puede contener caracteres hexadecimales (0-9, a-f).'); return;
-  }
+          <label for="s-placa">Placa del vehículo</label>
+          <input id="s-placa" type="text" placeholder="Ej: ABC123" autocapitalize="characters" maxlength="7" />
 
-  var btn = document.getElementById('btn-buscar');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Verificando…';
-  div.innerHTML = '';
+          <label for="s-comp">N° comprobante de pago <span style="color:var(--muted);font-weight:400">(opcional si ya
+              pagó)</span></label>
+          <input id="s-comp" type="text" placeholder="Número de transacción Nequi/Daviplata" />
 
-  var url = PORTAL_API + '?action=buscar&tipo=' + encodeURIComponent(tipo)
-                       + '&control=' + encodeURIComponent(control);
+          <button class="btn btn-gold" id="btn-solicitud" onclick="enviarSolicitud()">Enviar Solicitud</button>
+        </div>
+      </div>
 
-  fetch(url)
-    .then(function(r){ return r.json(); })
-    .then(function(data){ renderResult(div, data, control); })
-    .catch(function(e){ showMsg(div, 'error', 'Error de red: ' + e.message); })
-    .finally(function(){ btn.disabled = false; btn.innerHTML = 'Verificar Certificado'; });
-}
+      <div id="result2"></div>
+    </div>
 
-function renderResult(div, data, control) {
-  if (!data.ok) {
-    showMsg(div, 'error', data.error || 'No se pudo verificar el certificado.');
-    return;
-  }
+  </main>
 
-  var rows = '';
-  function row(label, val, full) {
-    if (!val) return '';
-    return '<div class="result-item' + (full ? ' full' : '') + '">'
-         + '<div class="ri-label">' + label + '</div>'
-         + '<div class="ri-val">' + val + '</div></div>';
-  }
+  <footer>
+    © 2025 Grupo Vinautos S.A.S · <a href="mailto:ger.grupovinautos@gmail.com">ger.grupovinautos@gmail.com</a>
+  </footer>
 
-  var tipo = data.tipo;
-  if (tipo === 'regrabaciones') {
-    rows += row('Certificado', data.cert_id);
-    rows += row('Placa', data.placa);
-    rows += row('Marca', data.marca);
-    rows += row('Clase', data.clase);
-    rows += row('Color', data.color);
-    rows += row('Modelo', data.modelo);
-    rows += row('Motor', data.motor);
-    rows += row('Chasis', data.chasis);
-    rows += row('Serie', data.serie);
-    rows += row('Fecha', data.fecha);
-    if (data.codigoControlVerificado) {
-      rows += row('Solicitante', data.solicitante, true);
-      rows += row('Identificación', data.cc);
+  <script>
+    // ─── CONFIGURACIÓN ─────────────────────────────────────────────────────────────
+    // Reemplazar con la URL real del Portal Code.gs desplegado en Apps Script
+    var PORTAL_API = 'https://script.google.com/macros/s/AKfycbyUtjIwGL0UlcgrlvHv29_VG4pCclgpVMByE3dAsTRamsX1bmM8pjieVhslnnop9Pzl/exec';
+
+    // ─── Tabs ──────────────────────────────────────────────────────────────────────
+    function switchTab(name) {
+      document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.section').forEach(function (s) { s.classList.remove('active'); });
+      document.getElementById('tab-' + name).classList.add('active');
+      document.getElementById('sec-' + name).classList.add('active');
     }
-  } else {
-    rows += row('Certificado', data.cert_id);
-    rows += row('Placa', data.placa);
-    rows += row('Marca', data.marca);
-    rows += row('Línea', data.linea);
-    rows += row('Modelo', data.modelo);
-    rows += row('Clase', data.clase);
-    rows += row('Color', data.color);
-    rows += row('Motor', data.motor);
-    rows += row('Chasis', data.chasis);
-    rows += row('Serie', data.serie);
-    rows += row('Cilindraje', data.cilindraje);
-    rows += row('Ciudad', data.ciudad);
-    rows += row('Servicio', data.servicio);
-    rows += row('Fecha', data.fecha_inspeccion);
-    rows += row('Estado', data.estado, true);
-    if (data.codigoControlVerificado) {
-      rows += row('Cliente', data.cliente, true);
-      rows += row('Identificación', data.identificacion);
+
+    // ─── Verificar ────────────────────────────────────────────────────────────────
+    function buscarCert() {
+      var tipo = document.getElementById('tipo').value;
+      var control = document.getElementById('control').value.trim().toLowerCase();
+      var div = document.getElementById('result');
+
+      if (!control) { showMsg(div, 'error', 'Ingrese el código de verificación.'); return; }
+      if (control.length < 8 || control.length > 20) {
+        showMsg(div, 'error', 'El código de verificación debe tener entre 8 y 20 caracteres.'); return;
+      }
+      if (!/^[0-9a-f]+$/.test(control)) {
+        showMsg(div, 'error', 'El código de verificación solo puede contener caracteres hexadecimales (0-9, a-f).'); return;
+      }
+
+      var btn = document.getElementById('btn-buscar');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>Verificando…';
+      div.innerHTML = '';
+
+      var url = PORTAL_API + '?action=buscar&tipo=' + encodeURIComponent(tipo)
+        + '&control=' + encodeURIComponent(control);
+
+      fetch(url)
+        .then(function (r) { return r.json(); })
+        .then(function (data) { renderResult(div, data, control); })
+        .catch(function (e) { showMsg(div, 'error', 'Error de red: ' + e.message); })
+        .finally(function () { btn.disabled = false; btn.innerHTML = 'Verificar Certificado'; });
     }
-  }
 
-  var ctrlNote = data.codigoControlVerificado
-    ? '<div class="alert alert-ok">✅ Código de verificación confirmado — documento auténtico</div>'
-    : '<div class="alert alert-err">❌ El código de verificación no coincide</div>';
+    function renderResult(div, data, control) {
+      if (!data.ok) {
+        showMsg(div, 'error', data.error || 'No se pudo verificar el certificado.');
+        return;
+      }
 
-  div.innerHTML =
-    '<div class="result-card">'
-    + '<div class="result-header">'
-    + '<div class="badge badge-ok">✓ CERTIFICADO ENCONTRADO</div>'
-    + '<div style="font-size:.78rem;color:var(--muted)">' + (tipo === 'regrabaciones' ? 'Regrabación VIN' : 'Inspección Vehicular') + '</div>'
-    + '</div>'
-    + '<div class="result-grid">' + rows + '</div>'
-    + ctrlNote
-    + '</div>';
-}
+      var rows = '';
+      function row(label, val, full) {
+        if (!val) {
+          if (full) return ''; // No renderizar filas completas si están vacías
+          val = '-'; // Llenar con guion para no romper la cuadrícula
+        }
+        return '<div class="result-item' + (full ? ' full' : '') + '">'
+          + '<div class="ri-label">' + label + '</div>'
+          + '<div class="ri-val">' + val + '</div></div>';
+      }
 
-function showMsg(div, type, msg) {
-  var cls = type === 'error' ? 'badge-err' : 'badge-ok';
-  var icon = type === 'error' ? '✕ ERROR' : '✓ OK';
-  div.innerHTML = '<div class="result-card error">'
-    + '<div class="result-header"><div class="badge ' + cls + '">' + icon + '</div></div>'
-    + '<p style="font-size:.88rem;color:var(--muted)">' + msg + '</p></div>';
-}
+      var tipo = data.tipo;
+      if (tipo === 'regrabaciones') {
+        rows += row('Certificado', data.cert_id);
+        rows += row('Placa', data.placa);
+        rows += row('Marca', data.marca);
+        rows += row('Clase', data.clase);
+        rows += row('Color', data.color);
+        rows += row('Modelo', data.modelo);
+        rows += row('Motor', data.motor);
+        rows += row('Chasis', data.chasis);
+        rows += row('Serie', data.serie);
+        rows += row('Fecha', data.fecha);
+        if (data.codigoControlVerificado) {
+          rows += row('Solicitante', data.solicitante, true);
+          rows += row('Identificación', data.cc, true);
+        }
+      } else {
+        rows += row('Certificado', data.cert_id);
+        rows += row('Placa', data.placa);
+        rows += row('Marca', data.marca);
+        rows += row('Línea', data.linea);
+        rows += row('Modelo', data.modelo);
+        rows += row('Clase', data.clase);
+        rows += row('Color', data.color);
+        rows += row('Motor', data.motor);
+        rows += row('Chasis', data.chasis);
+        rows += row('Serie', data.serie);
+        rows += row('Cilindraje', data.cilindraje);
+        rows += row('Ciudad', data.ciudad);
+        rows += row('Servicio', data.servicio);
+        rows += row('Fecha', data.fecha_inspeccion);
+        rows += row('Estado', data.estado, true);
+        if (data.codigoControlVerificado) {
+          rows += row('Cliente', data.cliente, true);
+          rows += row('Identificación', data.identificacion, true);
+        }
+      }
 
-// ─── Solicitud pagada ──────────────────────────────────────────────────────────
-function enviarSolicitud() {
-  var nombre  = document.getElementById('s-nombre').value.trim();
-  var tel     = document.getElementById('s-tel').value.trim();
-  var correo  = document.getElementById('s-correo').value.trim();
-  var placa   = document.getElementById('s-placa').value.trim();
-  var tipo    = document.getElementById('s-tipo').value;
-  var comp    = document.getElementById('s-comp').value.trim();
-  var div     = document.getElementById('result2');
+      var ctrlNote = data.codigoControlVerificado
+        ? '<div class="alert alert-ok">✅ Código de verificación confirmado — documento auténtico</div>'
+        : '<div class="alert alert-err">❌ El código de verificación no coincide</div>';
 
-  if (!nombre || !correo || !placa) {
-    div.innerHTML = '<div class="alert alert-err">⚠️ Complete nombre, correo y placa.</div>'; return;
-  }
-
-  var btn = document.getElementById('btn-solicitud');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Enviando…';
-
-  fetch(PORTAL_API, {
-    method: 'POST',
-    // Omitimos Content-Type application/json para evitar preflight OPTIONS de CORS
-    body: JSON.stringify({ action:'solicitud', nombre:nombre, telefono:tel,
-                           correo:correo, placa:placa, tipo_consulta:tipo, comprobante:comp })
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(d){
-    if (d.ok) {
-      div.innerHTML = '<div class="alert alert-ok">✅ ' + d.message + '</div>';
-    } else {
-      div.innerHTML = '<div class="alert alert-err">❌ ' + (d.error || 'Error al enviar.') + '</div>';
+      div.innerHTML =
+        '<div class="result-card">'
+        + '<div class="result-header">'
+        + '<div class="badge badge-ok">✓ CERTIFICADO ENCONTRADO</div>'
+        + '<div style="font-size:.78rem;color:var(--muted)">' + (tipo === 'regrabaciones' ? 'Regrabación VIN' : 'Inspección Vehicular') + '</div>'
+        + '</div>'
+        + '<div class="result-grid">' + rows + '</div>'
+        + ctrlNote
+        + '</div>';
     }
-  })
-  .catch(function(e){ div.innerHTML = '<div class="alert alert-err">❌ Error de red: ' + e.message + '</div>'; })
-  .finally(function(){ btn.disabled = false; btn.innerHTML = 'Enviar Solicitud'; });
-}
-</script>
+
+    function showMsg(div, type, msg) {
+      var cls = type === 'error' ? 'badge-err' : 'badge-ok';
+      var icon = type === 'error' ? '✕ ERROR' : '✓ OK';
+      div.innerHTML = '<div class="result-card error">'
+        + '<div class="result-header"><div class="badge ' + cls + '">' + icon + '</div></div>'
+        + '<p style="font-size:.88rem;color:var(--muted)">' + msg + '</p></div>';
+    }
+
+    // ─── Solicitud pagada ──────────────────────────────────────────────────────────
+    function enviarSolicitud() {
+      var nombre = document.getElementById('s-nombre').value.trim();
+      var tel = document.getElementById('s-tel').value.trim();
+      var correo = document.getElementById('s-correo').value.trim();
+      var placa = document.getElementById('s-placa').value.trim();
+      var tipo = document.getElementById('s-tipo').value;
+      var comp = document.getElementById('s-comp').value.trim();
+      var div = document.getElementById('result2');
+
+      if (!nombre || !correo || !placa) {
+        div.innerHTML = '<div class="alert alert-err">⚠️ Complete nombre, correo y placa.</div>'; return;
+      }
+
+      var btn = document.getElementById('btn-solicitud');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>Enviando…';
+
+      fetch(PORTAL_API, {
+        method: 'POST',
+        // Omitimos Content-Type application/json para evitar preflight OPTIONS de CORS
+        body: JSON.stringify({
+          action: 'solicitud', nombre: nombre, telefono: tel,
+          correo: correo, placa: placa, tipo_consulta: tipo, comprobante: comp
+        })
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.ok) {
+            div.innerHTML = '<div class="alert alert-ok">✅ ' + d.message + '</div>';
+          } else {
+            div.innerHTML = '<div class="alert alert-err">❌ ' + (d.error || 'Error al enviar.') + '</div>';
+          }
+        })
+        .catch(function (e) { div.innerHTML = '<div class="alert alert-err">❌ Error de red: ' + e.message + '</div>'; })
+        .finally(function () { btn.disabled = false; btn.innerHTML = 'Enviar Solicitud'; });
+    }
+
+    // ─── Lógica para ocultar/mostrar formulario de consulta ─────────
+    function updateConsultaForm() {
+      var select = document.getElementById('s-tipo');
+      var container = document.getElementById('consulta-form-container');
+      var pagoValor = document.getElementById('pago-valor');
+
+      if (select.value) {
+        var option = select.options[select.selectedIndex];
+        pagoValor.innerText = option.getAttribute('data-precio') || '$0 COP';
+        container.style.display = 'block';
+      } else {
+        container.style.display = 'none';
+      }
+    }
+  </script>
 </body>
+
 </html>
