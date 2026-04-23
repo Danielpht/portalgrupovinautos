@@ -34,14 +34,24 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.ibb.co/Xffh5f5c/FONDO-PAGINA-SEGURIDAD-VINAUTOS.png");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       color: var(--text);
       min-height: 100vh;
       display: flex;
-      flex-direction: column
+      flex-direction: column;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.ibb.co/Xffh5f5c/FONDO-PAGINA-SEGURIDAD-VINAUTOS.png");
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
     }
 
     a {
@@ -218,12 +228,12 @@
       font-family: inherit
     }
 
-    .btn-gold {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #059669);
       color: #0a0c12
     }
 
-    .btn-gold:hover {
+    .btn-primary:hover {
       filter: brightness(1.1);
       transform: translateY(-1px)
     }
@@ -387,7 +397,7 @@
       display: inline-block;
       width: 18px;
       height: 18px;
-      border: 2px solid rgba(245, 158, 11, .3);
+      border: 2px solid rgba(16, 185, 129, .3);
       border-top-color: var(--accent);
       border-radius: 50%;
       animation: spin .7s linear infinite;
@@ -466,7 +476,7 @@
           autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
         <div class="hint">Impreso en el documento bajo el QR · <span>8 a 20 caracteres hexadecimales</span></div>
 
-        <button class="btn btn-gold" id="btn-buscar" onclick="buscarCert()">Verificar Certificado</button>
+        <button class="btn btn-primary" id="btn-buscar" onclick="buscarCert()">Verificar Certificado</button>
       </div>
 
       <div id="result"></div>
@@ -512,7 +522,7 @@
               pagó)</span></label>
           <input id="s-comp" type="text" placeholder="Número de transacción Nequi/Daviplata" />
 
-          <button class="btn btn-gold" id="btn-solicitud" onclick="enviarSolicitud()">Enviar Solicitud</button>
+          <button class="btn btn-primary" id="btn-solicitud" onclick="enviarSolicitud()">Enviar Solicitud</button>
         </div>
       </div>
 
