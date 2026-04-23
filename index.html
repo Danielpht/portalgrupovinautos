@@ -14,9 +14,9 @@
   --surface:#13161f;
   --card:#1a1e2b;
   --border:#252836;
-  --accent:#f59e0b;
-  --accent2:#fbbf24;
-  --green:#10b981;
+  --accent:#10b981;        /* Verde principal — botones, tabs, links */
+  --accent2:#059669;       /* Verde oscuro — hover y gradiente */
+  --green:#34d399;         /* Verde claro — alertas de éxito y badges */
   --red:#ef4444;
   --blue:#3b82f6;
   --text:#f1f5f9;
@@ -53,7 +53,7 @@ main{flex:1;padding:24px 16px 40px;max-width:680px;margin:0 auto;width:100%}
 /* ── Form ── */
 label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
 input,select,textarea{width:100%;background:#0f1118;border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;font-family:inherit;transition:.2s;margin-bottom:14px}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(245,158,11,.12)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(16,185,129,.15)}
 input::placeholder{color:#3d4255}
 .mono{font-family:'Courier New',monospace;letter-spacing:.06em;font-size:.85rem}
 .hint{font-size:.74rem;color:var(--muted);margin-top:-10px;margin-bottom:14px}
@@ -61,7 +61,7 @@ input::placeholder{color:#3d4255}
 
 /* ── Buttons ── */
 .btn{display:block;width:100%;padding:13px;border:none;border-radius:9px;font-size:.95rem;font-weight:700;cursor:pointer;transition:.2s;font-family:inherit}
-.btn-gold{background:linear-gradient(135deg,#f59e0b,#d97706);color:#0a0c12}
+.btn-gold{background:linear-gradient(135deg,#10b981,#059669);color:#fff}  /* ← ANTES: #f59e0b → #d97706 */
 .btn-gold:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted);margin-top:10px}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
@@ -74,7 +74,7 @@ input::placeholder{color:#3d4255}
 .badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:.75rem;font-weight:700}
 .badge-ok{background:rgba(16,185,129,.15);color:var(--green)}
 .badge-err{background:rgba(239,68,68,.15);color:var(--red)}
-.badge-warn{background:rgba(245,158,11,.15);color:var(--accent)}
+.badge-warn{background:rgba(52,211,153,.15);color:var(--green)}
 .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .result-item{background:var(--card);border-radius:8px;padding:10px 12px}
 .result-item .ri-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:3px}
@@ -83,8 +83,8 @@ input::placeholder{color:#3d4255}
 
 /* ── Alert box ── */
 .alert{padding:12px 14px;border-radius:8px;font-size:.82rem;margin-top:14px}
-.alert-warn{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#fde68a}
-.alert-ok{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#6ee7b7}
+.alert-warn{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:#a7f3d0}
+.alert-ok{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:#a7f3d0}
 .alert-err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5}
 
 /* ── Pago info ── */
@@ -95,7 +95,7 @@ input::placeholder{color:#3d4255}
 .pago-row strong{color:var(--accent)}
 
 /* ── Spinner ── */
-.spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(245,158,11,.3);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px}
+.spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(16,185,129,.3);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
@@ -107,7 +107,8 @@ footer a{color:var(--accent)}
 <body>
 
 <header>
-  <img src="https://i.ibb.co/vvgWfr0/logo-vinautos.png" alt="Grupo Vinautos" onerror="this.style.display='none'"/>
+  <!-- ↓ LOGO ACTUALIZADO ↓ -->
+  <img src="https://i.ibb.co/Pztk5v8L/LOGO-VINAUTOS-AF.png" alt="Grupo Vinautos" onerror="this.style.display='none'"/>
   <div class="header-titles">
     <h1>Portal de Verificación</h1>
     <p>grupovinautos.com · Seguridad Certificada</p>
@@ -196,7 +197,6 @@ footer a{color:var(--accent)}
 
 <script>
 // ─── CONFIGURACIÓN ─────────────────────────────────────────────────────────────
-// Reemplazar con la URL real del Portal Code.gs desplegado en Apps Script
 var PORTAL_API = 'https://script.google.com/macros/s/AKfycbyUtjIwGL0UlcgrlvHv29_VG4pCclgpVMByE3dAsTRamsX1bmM8pjieVhslnnop9Pzl/exec';
 
 // ─── Tabs ──────────────────────────────────────────────────────────────────────
@@ -328,6 +328,10 @@ function enviarSolicitud() {
 
   if (!nombre || !correo || !placa) {
     div.innerHTML = '<div class="alert alert-err">⚠️ Complete nombre, correo y placa.</div>'; return;
+  }
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(correo)) {
+    div.innerHTML = '<div class="alert alert-err">⚠️ El correo electrónico no es válido. Ej: nombre@dominio.com</div>'; return;
   }
 
   var btn = document.getElementById('btn-solicitud');
