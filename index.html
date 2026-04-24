@@ -31,9 +31,12 @@
       --radius: 14px;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -41,17 +44,179 @@
       position: relative;
     }
 
-    body::before {
-      content: '';
+    /* ── Background Video Parallax ── */
+    .video-bg-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.ibb.co/Xffh5f5c/FONDO-PAGINA-SEGURIDAD-VINAUTOS.png");
-      background-size: cover;
-      background-position: center;
+      z-index: -2;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .video-bg-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+
+    .video-bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
+      background: linear-gradient(to bottom, rgba(10, 12, 18, 0.5), rgba(10, 12, 18, 0.98));
+      pointer-events: none;
+    }
+
+    /* ── Animaciones Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      transform: translateX(-40px);
+    }
+    .reveal-right {
+      transform: translateX(40px);
+    }
+
+    /* ── Hero ── */
+    .hero-section {
+      min-height: 65vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 99px;
+      font-size: 0.8rem;
+      color: #6ee7b7;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 800px;
+    }
+    @media(min-width: 768px) {
+      .hero-title { font-size: 3.5rem; }
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials-section {
+      margin: 80px auto 40px;
+      max-width: 1000px;
+      position: relative;
+    }
+    .testim-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .testim-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .testim-header p {
+      color: var(--muted);
+    }
+    .testimonials-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      max-height: 500px;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    }
+    .testim-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: scroll-vertical 25s linear infinite;
+    }
+    .testim-col.reverse {
+      animation-direction: reverse;
+      animation-duration: 30s;
+    }
+    .testim-card {
+      background: rgba(26, 30, 43, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 24px;
+      width: 280px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    @media(max-width: 600px) {
+      .testim-col:nth-child(3), .testim-col:nth-child(2) { display: none; }
+      .testim-card { width: 300px; }
+    }
+    @media(min-width: 601px) and (max-width: 900px) {
+      .testim-col:nth-child(3) { display: none; }
+    }
+    .testim-text {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .testim-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testim-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testim-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .testim-role {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+    @keyframes scroll-vertical {
+      from { transform: translateY(0); }
+      to { transform: translateY(calc(-50% - 10px)); }
     }
 
     a {
@@ -440,27 +605,41 @@
 
 <body>
 
-  <header
+  <!-- Video Background with Overlay -->
+  <div class="video-bg-container" id="parallax-bg">
+    <video autoplay loop muted playsinline>
+      <source src="background_page.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="video-bg-overlay"></div>
+
+  <header class="reveal"
     style="background: transparent; border-bottom: none; padding: 20px; display: flex; justify-content: center; align-items: center;">
     <img src="https://i.ibb.co/Pztk5v8L/LOGO-VINAUTOS-AF.png" alt="Grupo Vinautos"
       style="height: 80px; object-fit: contain;" onerror="this.style.display='none'" />
   </header>
 
   <main>
-
-    <!-- TITULO -->
-    <div style="text-align: center; margin-bottom: 24px;">
-      <h1 style="font-size: 1.5rem; font-weight: 700; color: var(--text);">Portal de Verificación</h1>
+    <!-- HERO SECTION -->
+    <div class="hero-section reveal">
+      <div class="trust-badge">
+        <span>⭐</span> Solución Certificada y Confiable
+      </div>
+      <h1 class="hero-title">Verificación Vehicular Segura</h1>
+      <p class="hero-subtitle">
+        Consulta el estado y autenticidad de inspecciones y regrabaciones de chasis y motor con el sistema más avanzado.
+      </p>
+      <a href="#sec-verificar" class="btn btn-primary" style="width: auto; padding: 14px 32px; display: inline-block;">Ingresar al Portal</a>
     </div>
 
     <!-- TABS -->
-    <div class="tabs">
+    <div class="tabs reveal reveal-left">
       <div class="tab active" id="tab-verificar" onclick="switchTab('verificar')">🔍 Verificar Certificado</div>
       <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consultas</div>
     </div>
 
     <!-- ══════════ SECCIÓN VERIFICAR ══════════ -->
-    <div class="section active" id="sec-verificar">
+    <div class="section active reveal" id="sec-verificar">
       <div class="card">
         <h2>Verificar Autenticidad</h2>
         <p class="sub">Ingrese el ID del certificado y el código de verificación impreso en el documento.</p>
@@ -483,7 +662,7 @@
     </div>
 
     <!-- ══════════ SECCIÓN CONSULTA ══════════ -->
-    <div class="section" id="sec-consulta">
+    <div class="section reveal" id="sec-consulta">
       <div class="card">
         <h2>Consulta Técnica</h2>
         <p class="sub">Solicite información sobre un vehículo. El informe se envía a su correo tras confirmar el pago.
@@ -527,6 +706,211 @@
       </div>
 
       <div id="result2"></div>
+    </div>
+
+    <!-- ══════════ TESTIMONIOS ══════════ -->
+    <div class="testimonials-section reveal">
+      <div class="testim-header">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <p>Experiencias reales utilizando el portal de Grupo Vinautos</p>
+      </div>
+      <div class="testimonials-container">
+        <!-- Columna 1 -->
+        <div class="testim-col">
+          <div class="testim-card">
+            <p class="testim-text">"El proceso de verificación de la regrabación fue inmediato y me dio total tranquilidad al comprar mi vehículo."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos" class="testim-avatar">
+              <div>
+                <div class="testim-name">Carlos Rodríguez</div>
+                <div class="testim-role">Comprador de Vehículo</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Excelente plataforma. Las consultas técnicas son claras y llegan al correo muy rápido. Lo recomiendo al 100%."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Laura" class="testim-avatar">
+              <div>
+                <div class="testim-name">Laura Gómez</div>
+                <div class="testim-role">Propietaria</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Como concesionario, tener una plataforma confiable para validar antecedentes de motor y chasis es invaluable."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Diego" class="testim-avatar">
+              <div>
+                <div class="testim-name">Diego Martínez</div>
+                <div class="testim-role">Gerente Comercial</div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicado para loop infinito -->
+          <div class="testim-card">
+            <p class="testim-text">"El proceso de verificación de la regrabación fue inmediato y me dio total tranquilidad al comprar mi vehículo."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos" class="testim-avatar">
+              <div>
+                <div class="testim-name">Carlos Rodríguez</div>
+                <div class="testim-role">Comprador de Vehículo</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Excelente plataforma. Las consultas técnicas son claras y llegan al correo muy rápido. Lo recomiendo al 100%."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Laura" class="testim-avatar">
+              <div>
+                <div class="testim-name">Laura Gómez</div>
+                <div class="testim-role">Propietaria</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Como concesionario, tener una plataforma confiable para validar antecedentes de motor y chasis es invaluable."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Diego" class="testim-avatar">
+              <div>
+                <div class="testim-name">Diego Martínez</div>
+                <div class="testim-role">Gerente Comercial</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Columna 2 (Reversa) -->
+        <div class="testim-col reverse">
+          <div class="testim-card">
+            <p class="testim-text">"La interfaz es muy intuitiva y no tuve problemas para encontrar mi certificado con el código QR."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Marta" class="testim-avatar">
+              <div>
+                <div class="testim-name">Marta Ríos</div>
+                <div class="testim-role">Asesora de Seguros</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Muy buen soporte y la información de las placas es detallada. Esencial para nuestro trabajo diario."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Andrés" class="testim-avatar">
+              <div>
+                <div class="testim-name">Andrés Silva</div>
+                <div class="testim-role">Perito Vehicular</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Seguridad ante todo. Me da mucha confianza que el código sea tan difícil de falsificar."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Jorge" class="testim-avatar">
+              <div>
+                <div class="testim-name">Jorge Castro</div>
+                <div class="testim-role">Cliente Particular</div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicado para loop infinito -->
+          <div class="testim-card">
+            <p class="testim-text">"La interfaz es muy intuitiva y no tuve problemas para encontrar mi certificado con el código QR."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Marta" class="testim-avatar">
+              <div>
+                <div class="testim-name">Marta Ríos</div>
+                <div class="testim-role">Asesora de Seguros</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Muy buen soporte y la información de las placas es detallada. Esencial para nuestro trabajo diario."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Andrés" class="testim-avatar">
+              <div>
+                <div class="testim-name">Andrés Silva</div>
+                <div class="testim-role">Perito Vehicular</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Seguridad ante todo. Me da mucha confianza que el código sea tan difícil de falsificar."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Jorge" class="testim-avatar">
+              <div>
+                <div class="testim-name">Jorge Castro</div>
+                <div class="testim-role">Cliente Particular</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="testim-col">
+          <div class="testim-card">
+            <p class="testim-text">"Resolvieron todas mis dudas de manera ágil. El certificado de inspección quedó listo en minutos."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Sofia" class="testim-avatar">
+              <div>
+                <div class="testim-name">Sofia Méndez</div>
+                <div class="testim-role">Usuaria</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Es genial poder descargar y verificar la regrabación desde cualquier celular sin tener que ir presencialmente."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Felipe" class="testim-avatar">
+              <div>
+                <div class="testim-name">Felipe Ortiz</div>
+                <div class="testim-role">Transportista</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Aprecio mucho la nitidez y profesionalismo con el que manejan los documentos de los vehículos."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Carmen" class="testim-avatar">
+              <div>
+                <div class="testim-name">Carmen Pineda</div>
+                <div class="testim-role">Administradora</div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicado para loop infinito -->
+          <div class="testim-card">
+            <p class="testim-text">"Resolvieron todas mis dudas de manera ágil. El certificado de inspección quedó listo en minutos."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Sofia" class="testim-avatar">
+              <div>
+                <div class="testim-name">Sofia Méndez</div>
+                <div class="testim-role">Usuaria</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Es genial poder descargar y verificar la regrabación desde cualquier celular sin tener que ir presencialmente."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Felipe" class="testim-avatar">
+              <div>
+                <div class="testim-name">Felipe Ortiz</div>
+                <div class="testim-role">Transportista</div>
+              </div>
+            </div>
+          </div>
+          <div class="testim-card">
+            <p class="testim-text">"Aprecio mucho la nitidez y profesionalismo con el que manejan los documentos de los vehículos."</p>
+            <div class="testim-author">
+              <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Carmen" class="testim-avatar">
+              <div>
+                <div class="testim-name">Carmen Pineda</div>
+                <div class="testim-role">Administradora</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </main>
@@ -707,6 +1091,47 @@
         container.style.display = 'none';
       }
     }
+
+    // ─── Animaciones & Parallax ──────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Reveal on scroll
+      var reveals = document.querySelectorAll('.reveal');
+      var revealObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+      reveals.forEach(function(el) {
+        revealObserver.observe(el);
+      });
+
+      // 2. Parallax Video Background
+      var bg = document.getElementById('parallax-bg');
+      window.addEventListener('scroll', function() {
+        var scrolled = window.pageYOffset;
+        if(bg) {
+          // Movimiento sutil hacia abajo para dar efecto de profundidad
+          bg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
+        }
+      });
+      
+      // 3. Smooth scroll para links internos (como el botón de hero)
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.querySelector(this.getAttribute('href'));
+          if(target) {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
   </script>
 </body>
 
