@@ -38,6 +38,7 @@
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
+      background-color: var(--bg);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -53,7 +54,6 @@
       height: 100%;
       z-index: -2;
       overflow: hidden;
-      will-change: transform;
     }
 
     .video-bg-container video {
@@ -70,7 +70,7 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: linear-gradient(to bottom, rgba(10, 12, 18, 0.5), rgba(10, 12, 18, 0.98));
+      background: rgba(5, 7, 10, 0.75);
       pointer-events: none;
     }
 
@@ -1165,15 +1165,9 @@
         revealObserver.observe(el);
       });
 
-      // 2. Parallax Video Background
-      var bg = document.getElementById('parallax-bg');
-      window.addEventListener('scroll', function () {
-        var scrolled = window.pageYOffset;
-        if (bg) {
-          // Movimiento sutil hacia abajo para dar efecto de profundidad
-          bg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
-        }
-      });
+      // 2. Fondo Fijo Cinematográfico
+      // El video se mantendrá completamente quieto de fondo (position: fixed) 
+      // y la página se deslizará por encima, evitando bordes cortados.
 
       // 3. Smooth scroll para links internos (como el botón de hero)
       document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
