@@ -262,40 +262,191 @@
       text-decoration: none
     }
 
-    /* ── Header ── */
-    header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 20px;
+    /* ── Navbar ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 12, 18, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+    .nav-logo img {
+      height: 40px;
+      object-fit: contain;
+    }
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-btn {
+      padding: 8px 20px;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-login {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: transparent;
+    }
+    .btn-login:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
       display: flex;
       align-items: center;
-      gap: 14px
+      gap: 6px;
+      border: 1px solid #25D366;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      border-color: #1ebe5d;
     }
 
-    header img {
-      height: 44px;
-      object-fit: contain
-    }
-
-    .header-titles h1 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2
-    }
-
-    .header-titles p {
-      font-size: .72rem;
-      color: var(--muted)
-    }
-
-    /* ── Main ── */
+    /* ── Layout & Sections ── */
     main {
       flex: 1;
-      padding: 24px 16px 40px;
+      padding-top: 80px; /* Offset for navbar */
+      width: 100%;
+    }
+    .info-section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    .portal-section {
       max-width: 680px;
-      margin: 0 auto;
-      width: 100%
+      margin: 0 auto 80px;
+      padding: 0 16px;
+    }
+    .info-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text);
+    }
+    .info-title span {
+      background: linear-gradient(to right, #10b981, #6ee7b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Nosotros ── */
+    .nosotros-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .nosotros-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .nosotros-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ── Servicios ── */
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .servicio-card {
+      background: rgba(20, 24, 36, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 30px;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .servicio-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+    }
+    .servicio-numero {
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(16, 185, 129, 0.08);
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      transition: 0.3s;
+      line-height: 1;
+    }
+    .servicio-card:hover .servicio-numero {
+      color: rgba(16, 185, 129, 0.2);
+    }
+    .servicio-titulo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      padding-right: 40px;
+      z-index: 1;
+    }
+    .servicio-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      z-index: 1;
+      flex-grow: 1;
+    }
+    .servicio-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent);
+      border-radius: 6px;
+      margin-top: 16px;
+      font-weight: 700;
+      align-self: flex-start;
+      z-index: 1;
+    }
+
+    @media(max-width: 900px) {
+      .nosotros-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 2rem !important; }
     }
 
     /* ── Tabs ── */
@@ -651,31 +802,116 @@
   </div>
   <div class="video-bg-overlay"></div>
 
-  <header class="reveal"
-    style="background: transparent; border-bottom: none; padding: 20px; display: flex; justify-content: center; align-items: center;">
-    <img src="https://i.ibb.co/Pztk5v8L/LOGO-VINAUTOS-AF.png" alt="Grupo Vinautos"
-      style="height: 80px; object-fit: contain;" onerror="this.style.display='none'" />
-  </header>
+  <nav class="reveal">
+    <a href="#" class="nav-logo">
+      <img src="https://i.ibb.co/Pztk5v8L/LOGO-VINAUTOS-AF.png" alt="Grupo Vinautos" />
+    </a>
+    <div class="nav-links">
+      <a href="#hero">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#portal">Portal</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-btn btn-login">Login</a>
+      <a href="https://wa.me/573000000000" target="_blank" class="nav-btn btn-whatsapp">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        WhatsApp
+      </a>
+    </div>
+  </nav>
 
   <main>
     <!-- HERO SECTION -->
-    <div class="hero-section reveal">
+    <div class="hero-section reveal" id="hero">
       <div class="trust-badge">
         <span>⭐</span> Solución Certificada y Confiable
       </div>
-      <h1 class="hero-title">Verificación Vehicular Segura</h1>
+      <h1 class="hero-title">Seguridad y Legalidad Vehicular en un Solo Lugar</h1>
       <p class="hero-subtitle">
-        Consulta el estado y autenticidad de inspecciones y regrabaciones de chasis y motor con el sistema más avanzado.
+        Inspección, legalización y verificación de vehículos automotores y maquinaria amarilla con respaldo y confiabilidad.
       </p>
-      <a href="#sec-verificar" class="btn btn-primary"
-        style="width: auto; padding: 14px 32px; display: inline-block;">Ingresar al Portal</a>
+      <div style="display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; justify-content: center;">
+        <a href="#portal" class="btn btn-primary" style="width: auto; padding: 14px 32px; display: inline-block;">Verificación de Documentos</a>
+        <a href="#servicios" class="btn btn-outline" style="width: auto; padding: 14px 32px; display: inline-block; margin-top: 0;">Nuestros Servicios</a>
+      </div>
     </div>
 
-    <!-- TABS -->
-    <div class="tabs reveal reveal-left">
-      <div class="tab active" id="tab-verificar" onclick="switchTab('verificar')">🔍 Verificar Certificado</div>
-      <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consultas</div>
-    </div>
+    <!-- NOSOTROS -->
+    <section class="info-section reveal" id="nosotros">
+      <h2 class="info-title">¿Quiénes <span>Somos?</span></h2>
+      <div class="nosotros-grid">
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800" alt="Inspección Vehicular" class="nosotros-img" />
+        <div class="nosotros-text">
+          <p style="margin-bottom: 20px;">Somos una Empresa dedicada a la <strong>Inspección, Legalización y Grabación de Sistemas de Identificación</strong> de Vehículos Automotores y Maquinaria Amarilla, como lo son Números de Chasis y Motor, Plaquetas de serie y Stickers de cabinas.</p>
+          <p>Operamos bajo la <strong>Resolución 12379 del año 2012</strong>, aplicando los procedimientos establecidos y regulados por la normatividad vigente, expedida por el Ministerio de Transporte.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="info-section reveal" id="servicios">
+      <h2 class="info-title">Nuestros <span>Servicios</span></h2>
+      <div class="servicios-grid">
+        <div class="servicio-card">
+          <div class="servicio-numero">1</div>
+          <div class="servicio-titulo">Verificación de Sistemas de Identificación</div>
+          <div class="servicio-desc">Vehículos Automotores y Maquinaria Amarilla.</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">2</div>
+          <div class="servicio-titulo">Regrabaciones de Vehículos Automotores</div>
+          <div class="servicio-desc">Chasis, Motor, Serie y VIN.</div>
+          <div class="servicio-tag">RES. 12379 DE 2012</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">3</div>
+          <div class="servicio-titulo">Confirmación de Declaración de Importación</div>
+          <div class="servicio-desc">Equipos de Construcción o Maquinaria Amarilla estatuto aduanero decreto 1165.</div>
+          <div class="servicio-tag">RES. 39 DE 2021</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">4</div>
+          <div class="servicio-titulo">Registros</div>
+          <div class="servicio-desc">Maquinaria Amarilla de: Construcción, Agrícola, Industrial.</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">5</div>
+          <div class="servicio-titulo">Legalizaciones de:</div>
+          <div class="servicio-desc">Cambios de Motor, Cabinas, Homologaciones de Carrocerías.</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">6</div>
+          <div class="servicio-titulo">Chatarrización</div>
+          <div class="servicio-desc">Reposición 1x1 o Reconocimiento Económico de vehículos de naturaleza de carga.</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">7</div>
+          <div class="servicio-titulo">Desbloqueo de Vehículos</div>
+          <div class="servicio-desc">Con deficiencia en la Matricula.</div>
+          <div class="servicio-tag">SUJETO A ESTUDIO</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">8</div>
+          <div class="servicio-titulo">Demandas Administrativas</div>
+          <div class="servicio-desc">Contra el Ministerio de Transporte. Nulidad y restablecimiento del derecho.</div>
+        </div>
+        <div class="servicio-card">
+          <div class="servicio-numero">9</div>
+          <div class="servicio-titulo">Compra de Vehículos Embargados</div>
+          <div class="servicio-desc">Maquinaria Amarilla. Compra sujeta a verificación del proceso ante la entidad financiera.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTAL VERIFICACION -->
+    <section class="portal-section reveal" id="portal">
+      <h2 class="info-title" style="margin-bottom: 24px;">Portal <span>Seguro</span></h2>
+      <!-- TABS -->
+      <div class="tabs reveal reveal-left">
+        <div class="tab active" id="tab-verificar" onclick="switchTab('verificar')">🔍 Verificación de Documentos</div>
+        <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consultas</div>
+      </div>
 
     <!-- ══════════ SECCIÓN VERIFICAR ══════════ -->
     <div class="section active reveal" id="sec-verificar">
@@ -746,6 +982,7 @@
 
       <div id="result2"></div>
     </div>
+    </section>
   </main>
 
   <!-- ══════════ TESTIMONIOS ══════════ -->
