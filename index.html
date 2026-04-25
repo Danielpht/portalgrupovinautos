@@ -125,6 +125,7 @@
       font-weight: 800;
       background: linear-gradient(to right, #ffffff, #94a3b8);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1.2;
       margin-bottom: 16px;
@@ -278,28 +279,34 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       transition: all 0.3s ease;
     }
+
     .nav-logo img {
       height: 40px;
       object-fit: contain;
     }
+
     .nav-links {
       display: flex;
       gap: 25px;
     }
+
     .nav-links a {
       color: var(--text);
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
     }
+
     .nav-links a:hover {
       color: var(--accent);
     }
+
     .nav-actions {
       display: flex;
       gap: 12px;
       align-items: center;
     }
+
     .nav-btn {
       padding: 8px 20px;
       border-radius: 99px;
@@ -309,15 +316,18 @@
       text-decoration: none;
       transition: 0.2s;
     }
+
     .btn-login {
       color: var(--text);
       border: 1px solid var(--border);
       background: transparent;
     }
+
     .btn-login:hover {
       border-color: var(--accent);
       color: var(--accent);
     }
+
     .btn-whatsapp {
       background: #25D366;
       color: #fff;
@@ -326,6 +336,7 @@
       gap: 6px;
       border: 1px solid #25D366;
     }
+
     .btn-whatsapp:hover {
       background: #1ebe5d;
       border-color: #1ebe5d;
@@ -334,19 +345,23 @@
     /* ── Layout & Sections ── */
     main {
       flex: 1;
-      padding-top: 80px; /* Offset for navbar */
+      padding-top: 80px;
+      /* Offset for navbar */
       width: 100%;
     }
+
     .info-section {
       max-width: 1100px;
       margin: 80px auto;
       padding: 0 20px;
     }
+
     .portal-section {
       max-width: 680px;
       margin: 0 auto 80px;
       padding: 0 16px;
     }
+
     .info-title {
       font-size: 2.2rem;
       font-weight: 800;
@@ -354,9 +369,11 @@
       margin-bottom: 40px;
       color: var(--text);
     }
+
     .info-title span {
       background: linear-gradient(to right, #10b981, #6ee7b7);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -367,12 +384,14 @@
       gap: 40px;
       align-items: center;
     }
+
     .nosotros-img {
       width: 100%;
       border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
+
     .nosotros-text {
       font-size: 1.05rem;
       line-height: 1.7;
@@ -385,10 +404,11 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
+
     .servicio-card {
       background: rgba(20, 24, 36, 0.6);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 16px;
       padding: 30px;
       transition: 0.3s;
@@ -397,11 +417,13 @@
       display: flex;
       flex-direction: column;
     }
+
     .servicio-card:hover {
       transform: translateY(-5px);
       border-color: rgba(16, 185, 129, 0.4);
       box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
     }
+
     .servicio-numero {
       font-size: 4rem;
       font-weight: 900;
@@ -412,9 +434,11 @@
       transition: 0.3s;
       line-height: 1;
     }
+
     .servicio-card:hover .servicio-numero {
       color: rgba(16, 185, 129, 0.2);
     }
+
     .servicio-titulo {
       font-size: 1.15rem;
       font-weight: 700;
@@ -423,6 +447,7 @@
       padding-right: 40px;
       z-index: 1;
     }
+
     .servicio-desc {
       font-size: 0.9rem;
       color: var(--muted);
@@ -430,6 +455,7 @@
       z-index: 1;
       flex-grow: 1;
     }
+
     .servicio-tag {
       display: inline-block;
       font-size: 0.7rem;
@@ -444,9 +470,17 @@
     }
 
     @media(max-width: 900px) {
-      .nosotros-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hero-title { font-size: 2rem !important; }
+      .nosotros-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2rem !important;
+      }
     }
 
     /* ── Tabs ── */
@@ -815,7 +849,12 @@
     <div class="nav-actions">
       <a href="#" class="nav-btn btn-login">Login</a>
       <a href="https://wa.me/573000000000" target="_blank" class="nav-btn btn-whatsapp">
-        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+          </path>
+        </svg>
         WhatsApp
       </a>
     </div>
@@ -829,11 +868,14 @@
       </div>
       <h1 class="hero-title">Seguridad y Legalidad Vehicular en un Solo Lugar</h1>
       <p class="hero-subtitle">
-        Inspección, legalización y verificación de vehículos automotores y maquinaria amarilla con respaldo y confiabilidad.
+        Inspección, legalización y verificación de vehículos automotores y maquinaria amarilla con respaldo y
+        confiabilidad.
       </p>
       <div style="display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; justify-content: center;">
-        <a href="#portal" class="btn btn-primary" style="width: auto; padding: 14px 32px; display: inline-block;">Verificación de Documentos</a>
-        <a href="#servicios" class="btn btn-outline" style="width: auto; padding: 14px 32px; display: inline-block; margin-top: 0;">Nuestros Servicios</a>
+        <a href="#portal" class="btn btn-primary"
+          style="width: auto; padding: 14px 32px; display: inline-block;">Verificación de Documentos</a>
+        <a href="#servicios" class="btn btn-outline"
+          style="width: auto; padding: 14px 32px; display: inline-block; margin-top: 0;">Nuestros Servicios</a>
       </div>
     </div>
 
@@ -841,10 +883,14 @@
     <section class="info-section reveal" id="nosotros">
       <h2 class="info-title">¿Quiénes <span>Somos?</span></h2>
       <div class="nosotros-grid">
-        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800" alt="Inspección Vehicular" class="nosotros-img" />
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800"
+          alt="Inspección Vehicular" class="nosotros-img" />
         <div class="nosotros-text">
-          <p style="margin-bottom: 20px;">Somos una Empresa dedicada a la <strong>Inspección, Legalización y Grabación de Sistemas de Identificación</strong> de Vehículos Automotores y Maquinaria Amarilla, como lo son Números de Chasis y Motor, Plaquetas de serie y Stickers de cabinas.</p>
-          <p>Operamos bajo la <strong>Resolución 12379 del año 2012</strong>, aplicando los procedimientos establecidos y regulados por la normatividad vigente, expedida por el Ministerio de Transporte.</p>
+          <p style="margin-bottom: 20px;">Somos una Empresa dedicada a la <strong>Inspección, Legalización y Grabación
+              de Sistemas de Identificación</strong> de Vehículos Automotores y Maquinaria Amarilla, como lo son Números
+            de Chasis y Motor, Plaquetas de serie y Stickers de cabinas.</p>
+          <p>Operamos bajo la <strong>Resolución 12379 del año 2012</strong>, aplicando los procedimientos establecidos
+            y regulados por la normatividad vigente, expedida por el Ministerio de Transporte.</p>
         </div>
       </div>
     </section>
@@ -883,7 +929,8 @@
         <div class="servicio-card">
           <div class="servicio-numero">6</div>
           <div class="servicio-titulo">Chatarrización</div>
-          <div class="servicio-desc">Reposición 1x1 o Reconocimiento Económico de vehículos de naturaleza de carga.</div>
+          <div class="servicio-desc">Reposición 1x1 o Reconocimiento Económico de vehículos de naturaleza de carga.
+          </div>
         </div>
         <div class="servicio-card">
           <div class="servicio-numero">7</div>
@@ -899,7 +946,8 @@
         <div class="servicio-card">
           <div class="servicio-numero">9</div>
           <div class="servicio-titulo">Compra de Vehículos Embargados</div>
-          <div class="servicio-desc">Maquinaria Amarilla. Compra sujeta a verificación del proceso ante la entidad financiera.</div>
+          <div class="servicio-desc">Maquinaria Amarilla. Compra sujeta a verificación del proceso ante la entidad
+            financiera.</div>
         </div>
       </div>
     </section>
@@ -913,75 +961,75 @@
         <div class="tab" id="tab-consulta" onclick="switchTab('consulta')">📋 Consultas</div>
       </div>
 
-    <!-- ══════════ SECCIÓN VERIFICAR ══════════ -->
-    <div class="section active reveal" id="sec-verificar">
-      <div class="card">
-        <h2>Verificar Autenticidad</h2>
-        <p class="sub">Ingrese el ID del certificado y el código de verificación impreso en el documento.</p>
+      <!-- ══════════ SECCIÓN VERIFICAR ══════════ -->
+      <div class="section active reveal" id="sec-verificar">
+        <div class="card">
+          <h2>Verificar Autenticidad</h2>
+          <p class="sub">Ingrese el ID del certificado y el código de verificación impreso en el documento.</p>
 
-        <label for="tipo">Tipo de certificado</label>
-        <select id="tipo">
-          <option value="regrabaciones">Regrabación de VIN</option>
-          <option value="inspecciones">Inspección Vehicular</option>
-        </select>
+          <label for="tipo">Tipo de certificado</label>
+          <select id="tipo">
+            <option value="regrabaciones">Regrabación de VIN</option>
+            <option value="inspecciones">Inspección Vehicular</option>
+          </select>
 
-        <label for="control">Código de verificación</label>
-        <input id="control" type="text" class="mono" placeholder="Ej: e8e293f1594667c9" maxlength="20"
-          autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
-        <div class="hint">Impreso en el documento bajo el QR · <span>8 a 20 caracteres hexadecimales</span></div>
+          <label for="control">Código de verificación</label>
+          <input id="control" type="text" class="mono" placeholder="Ej: e8e293f1594667c9" maxlength="20"
+            autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
+          <div class="hint">Impreso en el documento bajo el QR · <span>8 a 20 caracteres hexadecimales</span></div>
 
-        <button class="btn btn-primary" id="btn-buscar" onclick="buscarCert()">Verificar Certificado</button>
-      </div>
-
-      <div id="result"></div>
-    </div>
-
-    <!-- ══════════ SECCIÓN CONSULTA ══════════ -->
-    <div class="section reveal" id="sec-consulta">
-      <div class="card">
-        <h2>Consulta Técnica</h2>
-        <p class="sub">Solicite información sobre un vehículo. El informe se envía a su correo tras confirmar el pago.
-        </p>
-
-        <label for="s-tipo">Tipo de consulta</label>
-        <select id="s-tipo" onchange="updateConsultaForm()">
-          <option value="" disabled selected>Seleccione el tipo de consulta...</option>
-          <option value="datos_tecnicos" data-precio="$30.000 COP">Datos Técnicos</option>
-          <option value="propietario" data-precio="$40.000 COP">Propietario</option>
-          <option value="pendiente1" data-precio="$50.000 COP">Pendiente 1</option>
-          <option value="pendiente2" data-precio="$60.000 COP">Pendiente 2</option>
-        </select>
-
-        <div id="consulta-form-container" style="display: none; margin-top: 20px;">
-          <div class="pago-box">
-            <div class="pago-title">💳 Datos de pago</div>
-            <div class="pago-row"><span>Nequi / Daviplata</span><strong>310 411 3186</strong></div>
-            <div class="pago-row"><span>Titular</span><strong>Grupo Vinautos S.A.S</strong></div>
-            <div class="pago-row"><span>Valor</span><strong id="pago-valor">$0 COP</strong></div>
-          </div>
-
-          <label for="s-nombre">Nombre completo</label>
-          <input id="s-nombre" type="text" placeholder="Su nombre" />
-
-          <label for="s-tel">Teléfono</label>
-          <input id="s-tel" type="tel" placeholder="3XX XXX XXXX" />
-
-          <label for="s-correo">Correo electrónico</label>
-          <input id="s-correo" type="email" placeholder="correo@ejemplo.com" />
-
-          <label for="s-placa">Placa del vehículo</label>
-          <input id="s-placa" type="text" placeholder="Ej: ABC123" autocapitalize="characters" maxlength="7" />
-
-          <label for="s-comp">N° comprobante de pago <span style="color:var(--muted);font-weight:400">(opcional si ya
-              pagó)</span></label>
-          <input id="s-comp" type="text" placeholder="Número de transacción Nequi/Daviplata" />
-
-          <button class="btn btn-primary" id="btn-solicitud" onclick="enviarSolicitud()">Enviar Solicitud</button>
+          <button class="btn btn-primary" id="btn-buscar" onclick="buscarCert()">Verificar Certificado</button>
         </div>
+
+        <div id="result"></div>
       </div>
 
-      <div id="result2"></div>
-    </div>
+      <!-- ══════════ SECCIÓN CONSULTA ══════════ -->
+      <div class="section reveal" id="sec-consulta">
+        <div class="card">
+          <h2>Consulta Técnica</h2>
+          <p class="sub">Solicite información sobre un vehículo. El informe se envía a su correo tras confirmar el pago.
+          </p>
+
+          <label for="s-tipo">Tipo de consulta</label>
+          <select id="s-tipo" onchange="updateConsultaForm()">
+            <option value="" disabled selected>Seleccione el tipo de consulta...</option>
+            <option value="datos_tecnicos" data-precio="$30.000 COP">Datos Técnicos</option>
+            <option value="propietario" data-precio="$40.000 COP">Propietario</option>
+            <option value="pendiente1" data-precio="$50.000 COP">Pendiente 1</option>
+            <option value="pendiente2" data-precio="$60.000 COP">Pendiente 2</option>
+          </select>
+
+          <div id="consulta-form-container" style="display: none; margin-top: 20px;">
+            <div class="pago-box">
+              <div class="pago-title">💳 Datos de pago</div>
+              <div class="pago-row"><span>Nequi / Daviplata</span><strong>310 411 3186</strong></div>
+              <div class="pago-row"><span>Titular</span><strong>Grupo Vinautos S.A.S</strong></div>
+              <div class="pago-row"><span>Valor</span><strong id="pago-valor">$0 COP</strong></div>
+            </div>
+
+            <label for="s-nombre">Nombre completo</label>
+            <input id="s-nombre" type="text" placeholder="Su nombre" />
+
+            <label for="s-tel">Teléfono</label>
+            <input id="s-tel" type="tel" placeholder="3XX XXX XXXX" />
+
+            <label for="s-correo">Correo electrónico</label>
+            <input id="s-correo" type="email" placeholder="correo@ejemplo.com" />
+
+            <label for="s-placa">Placa del vehículo</label>
+            <input id="s-placa" type="text" placeholder="Ej: ABC123" autocapitalize="characters" maxlength="7" />
+
+            <label for="s-comp">N° comprobante de pago <span style="color:var(--muted);font-weight:400">(opcional si ya
+                pagó)</span></label>
+            <input id="s-comp" type="text" placeholder="Número de transacción Nequi/Daviplata" />
+
+            <button class="btn btn-primary" id="btn-solicitud" onclick="enviarSolicitud()">Enviar Solicitud</button>
+          </div>
+        </div>
+
+        <div id="result2"></div>
+      </div>
     </section>
   </main>
 
@@ -1387,6 +1435,18 @@
 
     // ─── Animaciones & Parallax ──────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', function () {
+      // Auto-populate from URL parameter and auto-submit
+      var params = new URLSearchParams(window.location.search);
+      var urlCode = params.get('code');
+      if (urlCode) {
+        var inputControl = document.getElementById('control');
+        if (inputControl) {
+          inputControl.value = urlCode;
+          switchTab('verificar');
+          setTimeout(buscarCert, 500);
+        }
+      }
+
       // 1. Reveal on scroll
       var reveals = document.querySelectorAll('.reveal');
       var revealObserver = new IntersectionObserver(function (entries, observer) {
