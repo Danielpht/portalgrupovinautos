@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Grupo Vinautos SAS</title>
+  <title> Grupo Vinautos SAS</title>
   <meta name="description"
     content="Verifique la autenticidad de certificados de regrabación e inspección vehicular emitidos por Grupo Vinautos S.A.S" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1438,7 +1438,23 @@
       // Auto-populate from URL parameter and auto-submit
       var params = new URLSearchParams(window.location.search);
       var urlCode = params.get('code');
-      if (urlCode) {
+      var urlCert = params.get('cert');
+      var urlHash = params.get('hash');
+
+      if (urlCert && urlHash) {
+        var inputControl = document.getElementById('control');
+        if (inputControl) inputControl.value = urlHash;
+        switchTab('verificar');
+        
+        var div = document.getElementById('result');
+        div.innerHTML = '<div class="result-card"><div class="result-header"><div class="badge badge-warn"><span class="spinner"></span>Verificando certificado...</div></div></div>';
+        
+        var url = PORTAL_API + '?action=get&cert=' + encodeURIComponent(urlCert) + '&hash=' + encodeURIComponent(urlHash);
+        fetch(url)
+          .then(function(r) { return r.json(); })
+          .then(function(data) { renderResult(div, data, urlHash); })
+          .catch(function(e) { showMsg(div, 'error', 'Error de red: ' + e.message); });
+      } else if (urlCode) {
         var inputControl = document.getElementById('control');
         if (inputControl) {
           inputControl.value = urlCode;
