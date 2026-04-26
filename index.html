@@ -813,10 +813,13 @@
 
     /* ── Footer ── */
     .main-footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
+      background: rgba(10, 12, 18, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding: 60px 20px 20px;
       margin-top: 40px;
+      position: relative;
     }
 
     .footer-content {
@@ -1378,18 +1381,54 @@
   </div>
         <footer class="main-footer" id="contacto">
           <div class="footer-content">
+            <!-- Columna 1: Info Empresa -->
             <div class="footer-brand">
               <img src="https://i.ibb.co/Pztk5v8L/LOGO-VINAUTOS-AF.png" alt="Grupo Vinautos" class="footer-logo">
-              <p style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Seguridad y legalidad vehicular con
-                total respaldo y profesionalismo.</p>
-            </div>
-            <div class="footer-info">
-              <h3 style="margin-bottom: 15px; font-size: 1.1rem;">Contacto</h3>
-              <p><strong>Razón Social:</strong> Grupo Vinautos S.A.S</p>
-              <p><strong>NIT:</strong> 901.272.764-3</p>
-              <p><strong>Teléfono:</strong> <a href="https://wa.link/7x3rvi" target="_blank">+57 314 204 6981</a></p>
-              <p><strong>Correo:</strong> <a href="mailto:ger.grupovinautos@gmail.com">ger.grupovinautos@gmail.com</a>
+              <p style="margin-top: 10px; color: var(--muted); font-size: 0.9rem; max-width: 300px;">
+                Empoderando a las empresas con soluciones vehiculares inteligentes, diseñadas para el futuro de la seguridad y legalidad.
               </p>
+            </div>
+            
+            <!-- Columna 2: Enlaces Útiles -->
+            <div class="footer-links">
+              <h3 style="margin-bottom: 15px; font-size: 1.05rem; font-weight: 600;">Enlaces Útiles</h3>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+                <li><a href="#hero" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s;">Inicio</a></li>
+                <li><a href="#nosotros" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s;">Nosotros</a></li>
+                <li><a href="#servicios" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s;">Servicios</a></li>
+                <li><a href="#portal" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s;">Portal</a></li>
+              </ul>
+            </div>
+
+            <!-- Columna 3: Contacto & Redes -->
+            <div class="footer-social">
+              <h3 style="margin-bottom: 15px; font-size: 1.05rem; font-weight: 600;">Síguenos</h3>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+                <li><a href="https://wa.link/7x3rvi" target="_blank" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: color 0.3s;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  WhatsApp
+                </a></li>
+                <li><a href="mailto:ger.grupovinautos@gmail.com" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: color 0.3s;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  Correo Electrónico
+                </a></li>
+                <li style="color: var(--muted); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                  Instagram
+                </li>
+              </ul>
+            </div>
+
+            <!-- Columna 4: Newsletter -->
+            <div class="footer-newsletter">
+              <h3 style="margin-bottom: 15px; font-size: 1.05rem; font-weight: 600;">Suscríbete</h3>
+              <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 12px;">Recibe actualizaciones y noticias sobre nuestros servicios.</p>
+              <form onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!'); this.reset();" style="position: relative; display: flex; width: 100%; max-width: 300px;">
+                <input type="email" placeholder="Tu correo electrónico" required style="width: 100%; padding: 10px 14px; border-radius: 8px 0 0 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: white; font-size: 0.85rem; outline: none;">
+                <button type="submit" style="padding: 10px 16px; border-radius: 0 8px 8px 0; border: none; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: background 0.3s;">
+                  Enviar
+                </button>
+              </form>
             </div>
           </div>
           <div class="footer-bottom">
