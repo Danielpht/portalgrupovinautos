@@ -278,13 +278,16 @@
     }
 
     .nav-logo img {
-      height: 40px;
+      height: 55px;
       object-fit: contain;
     }
 
     .nav-links {
       display: flex;
       gap: 25px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .nav-links a {
@@ -1441,7 +1444,7 @@
               var inputControl = document.getElementById('control');
               if (inputControl) inputControl.value = shortHash;
               switchTab('verificar');
-              
+
               // Hacer scroll automáticamente hacia el módulo
               var portalSection = document.getElementById('portal');
               if (portalSection) {
