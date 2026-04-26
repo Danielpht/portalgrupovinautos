@@ -123,12 +123,10 @@
     .hero-title {
       font-size: 2.4rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
+      background: linear-gradient(to bottom, #ffffff, #94a3b8);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
       line-height: 1.2;
       margin-bottom: 16px;
       max-width: 800px;
@@ -1446,6 +1444,12 @@
               var inputControl = document.getElementById('control');
               if (inputControl) inputControl.value = shortHash;
               switchTab('verificar');
+              
+              // Hacer scroll automáticamente hacia el módulo
+              var portalSection = document.getElementById('portal');
+              if (portalSection) {
+                portalSection.scrollIntoView({ behavior: 'smooth' });
+              }
 
               var div = document.getElementById('result');
               div.innerHTML = '<div class="result-card"><div class="result-header"><div class="badge badge-warn"><span class="spinner"></span>Verificando certificado...</div></div></div>';
